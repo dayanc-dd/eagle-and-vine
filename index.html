@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAGLE & VINE | Heritage & Luxury Vintage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --surface-color: #12141c;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 50px;
+            background: rgba(11, 12, 16, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(11,12,16,0.6), rgba(11,12,16,0.9)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--gold-primary);
+            color: var(--bg-color);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .heritage-section {
+            padding: 120px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .heritage-section h2 {
+            font-size: 3rem;
+            color: var(--gold-light);
+            margin-bottom: 30px;
+        }
+
+        .heritage-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .showcase {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 70px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            height: 450px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.03);
+        }
+
+        .card-content {
+            padding: 30px;
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .card-price {
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 12, 16, 0.9);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            border: 1px solid var(--gold-primary);
+            padding: 40px;
+            max-width: 850px;
+            width: 90%;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--gold-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .modal-text {
+            color: var(--text-main);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .modal-specs {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            header { padding: 20px; }
+            nav { display: none; }
+            .showcase, .heritage-section { padding: 80px 20px; }
+            .modal-content { grid-template-columns: 1fr; padding: 25px; }
+            .modal-img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Eagle & Vine</a>
+        <nav>
+            <a href="#collection">Collection</a>
+            <a href="#heritage">Heritage</a>
+            <a href="#atelier">Atelier</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Timeless Elegance</h1>
+        <p>Curated vintage heritage pieces embodying sovereign luxury and unmatched quiet sophistication.</p>
+        <a href="#collection" class="btn">Explore Archive</a>
+    </section>
+
+    <section class="heritage-section" id="heritage">
+        <h2 class="serif">The House of Heritage</h2>
+        <p>Founded in 2018 in the heart of historical Ashgabat, <strong>Eagle & Vine</strong> emerged from a profound desire to merge centuries-old Eastern craftsmanship with timeless European old-money silhouettes.</p>
+        <p>What started as a private archive of bespoke tailored garments quickly became a symbol of quiet status, recognized globally for uncompromising fabrics, rigid attention to detail, and limited-run sovereign aesthetics.</p>
+    </section>
+
+    <section class="showcase" id="collection">
+        <h2 class="section-title">The Curated Archive</h2>
+        <div class="section-subtitle">Limited Edition Drops</div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Sovereign Cashmere Coat</h3>
+                    <span class="card-price">$2,450</span>
+                    <p class="card-desc">Hand-tailored heavy virgin wool, structured shoulders, vintage 1980s heritage cut.</p>
+                    <button class="btn open-modal-btn" 
+                        data-img="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop"
+                        data-title="Sovereign Cashmere Coat" 
+                        data-price="$2,450" 
+                        data-desc="An iconic statement piece crafted for ultimate cold-weather presence. Sourced from archival patterns, featuring deep inner silk lining."
+                        data-specs="Material: 100% Virgin Wool & Cashmere | Origin: Hand-stitched in Atelier | Care: Specialist Dry Clean Only">
+                        Acquire
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Imperial Velvet Blazer</h3>
+                    <span class="card-price">$1,890</span>
+                    <p class="card-desc">Deep obsidian Italian cotton velvet accented with custom brass heritage crest buttons.</p>
+                    <button class="btn open-modal-btn" 
+                        data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop"
+                        data-title="Imperial Velvet Blazer" 
+                        data-price="$1,890" 
+                        data-desc="Tailored to create an impeccable sharp silhouette. The obsidian velvet catches light dynamically, designed for elite evening affairs."
+                        data-specs="Material: Italian Cotton Velvet, Brass Hardware | Origin: Limited Series #04 | Care: Professional Steam Only">
+                        Acquire
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Silk Jacquard Scarf</h3>
+                    <span class="card-price">$480</span>
+                    <p class="card-desc">Pure mulberry woven silk featuring bespoke archival motifs inspired by ancient art.</p>
+                    <button class="btn open-modal-btn" 
+                        data-img="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop"
+                        data-title="Silk Jacquard Scarf" 
+                        data-price="$480" 
+                        data-desc="A delicate yet striking accessory woven on traditional looms. Complements structured coats and adds a sophisticated touch of texture."
+                        data-specs="Material: 100% Pure Mulberry Silk | Origin: Woven in Limited Batch | Care: Hand Wash Cold">
+                        Acquire
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Onyx Python Sovereign Shoes</h3>
+                    <span class="card-price">$5,000</span>
+                    <p class="card-desc">Handcrafted from deep black genuine python leather with bespoke artisanal finishing.</p>
+                    <button class="btn open-modal-btn" 
+                        data-img="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop"
+                        data-title="Onyx Python Sovereign Shoes" 
+                        data-price="$5,000" 
+                        data-desc="Masterfully handcrafted by elite artisans. The deep obsidian black python leather offers an unmistakable texture and quiet, commanding elegance for formal galas and private estates."
+                        data-specs="Material: 100% Genuine Python Leather | Origin: Master Atelier Handcrafted | Care: Specialized Exotic Leather Conditioner">
+                        Acquire
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-img" id="modalImg"></div>
+            <div>
+                <h3 class="modal-title" id="modalTitle">Product Title</h3>
+                <span class="modal-price" id="modalPrice">$0</span>
+                <p class="modal-text" id="modalDesc">Description goes here...</p>
+                <div class="modal-specs" id="modalSpecs">Specs go here...</div>
+                <button class="btn" style="margin-top: 20px; width: 100%; text-align: center; padding: 12px;" onclick="alert('Inquiry registered. Our concierge will contact you.')">Confirm Acquisition</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 EAGLE & VINE. ALL RIGHTS RESERVED. ANNAU / ASHGABAT.</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalSpecs = document.getElementById('modalSpecs');
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modalImg.style.backgroundImage = `url('${btn.getAttribute('data-img')}')`;
+                modalTitle.textContent = btn.getAttribute('data-title');
+                modalPrice.textContent = btn.getAttribute('data-price');
+                modalDesc.textContent = btn.getAttribute('data-desc');
+                modalSpecs.textContent = btn.getAttribute('data-specs');
+                modal.classList.add('active');
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
